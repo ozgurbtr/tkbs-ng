@@ -7,14 +7,14 @@ all: build
 dist:
 	git worktree add dist gh-pages
 
-build: dist
+build: 
 	npm run build
 
-deploy: all
+deploy: build
 	cd dist && \
 	git add --all && \
-	git commit -m "Deploy to gh-pages" && \
-	git push origin gh-pages
+	git commit -m "Deploy to gh-pages" #&& \
+	#git push origin gh-pages
 
 # Removing the actual dist directory confuses git and will require a git worktree prune to fix
 clean:
